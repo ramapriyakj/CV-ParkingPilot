@@ -1,0 +1,478 @@
+Graph (unnamed
+  Station (source/player player
+    {
+      filename = "C:/Lidar/HAD_20170704_090923_uni.scene";
+    }
+  )
+  Station (semesterprojekt/lidar/Lidar Lidar
+    {
+      size = 600;
+      map_size = 500;
+      init_Orientation = 2.09430f;
+    }
+  )
+  Station (semesterprojekt/common/Pose2Viscom Pose2Viscom
+    {
+      color = QColor(255, 255, 6, 255);
+    }
+  )
+  Station (view/img MapViewer
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0.00000, 255.000);
+        Gamma = 1.00000;
+        Brightness = 1.00000;
+        Hue = 1.00000;
+        Saturation = 1.00000;
+        Red = 1.00000;
+        Green = 1.00000;
+        Blue = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (ipp/image/dataExchange/splitChannels splitChannels#1)
+  Station (ipp/image/thresholdCompare/threshold threshold#1
+    {
+      threshold = 240.000f;
+      thresholdType = "Value";
+    }
+  )
+
+  Graph (DetectingShapes
+    Station (img/converter converter)
+    Station (VirtualEnvironment/ObjFileReader/veObjFileDataSourceStation veObjFileDataSourceStation
+      {
+        dataRate = 0.100000;
+        "OBJ-file" = ":veTools/ParkplatzModell.obj";
+        "Initial-pose" = 
+        {
+          x = 0.00000;
+          y = 0.00000;
+          z = 0.00000;
+          roll = 0.00000;
+          pitch = 0.00000;
+          yaw = 0.00000;
+        }
+        GridMap = 
+        {
+          width = 200.000;
+          height = 200.000;
+          resolution = 0.200000;
+          "draw-only-vertical-vertices" = true;
+          "threshold-normal-z-component" = 0.200000;
+        }
+        "Object-config" = 
+        {
+          Light = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Pole = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Floor = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Green = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          ParkingLots = 
+          {
+            "draw-to-grid-map" = true;
+          }
+          Roadmarking = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Curb = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Drivable = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Wall = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Gate = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Parking = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Fence = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Door = 
+          {
+            "draw-to-grid-map" = false;
+          }
+          Non = 
+          {
+            "draw-to-grid-map" = false;
+          }
+        }
+      }
+    )
+    Station (opencv/imgproc/structanalysis/findContours findContours)
+    Station (ipp/image/computerVision/floodFillRGB floodFillRGB)
+    Station (img/converter converter#1
+      {
+        outputType = "RGB24";
+      }
+    )
+    Station (img/converter converter#3)
+    Station (ipp/image/thresholdCompare/threshold threshold#1
+      {
+        threshold = 50.0000f;
+        thresholdGT = 50.0000f;
+        value = 255.000f;
+        thresholdType = "DoubleValue";
+      }
+    )
+    Station (opencv/imgproc/structanalysis/drawContours drawContours
+      {
+        thickness = 3;
+        randomColors = true;
+      }
+    )
+    Station (ipp/image/thresholdCompare/threshold threshold#3
+      {
+        thresholdGT = 0.010000f;
+        valueGT = 255.000f;
+        compareMode = "GreaterThean";
+        thresholdType = "DoubleValue";
+      }
+    )
+    Station (ipp/image/arithmetic/invert invert)
+    Station (ipp/image/arithmetic/invert invert#1)
+
+    Graph (DetectingShapes
+      Station (ipp/image/thresholdCompare/threshold threshold
+        {
+          threshold = 5.00000f;
+          thresholdGT = 5.00000f;
+          valueGT = 255.000f;
+          compareMode = "LessEqual";
+          thresholdType = "DoubleValue";
+        }
+      )
+      Station (img/converter converter)
+      Station (VirtualEnvironment/ObjFileReader/veObjFileDataSourceStation veObjFileDataSourceStation
+        {
+          dataRate = 0.100000;
+          "OBJ-file" = ":veTools/ParkplatzModell.obj";
+          "Initial-pose" = 
+          {
+            x = 0.00000;
+            y = 0.00000;
+            z = 0.00000;
+            roll = 0.00000;
+            pitch = 0.00000;
+            yaw = 0.00000;
+          }
+          GridMap = 
+          {
+            width = 200.000;
+            height = 200.000;
+            resolution = 0.200000;
+            "draw-only-vertical-vertices" = true;
+            "threshold-normal-z-component" = 0.200000;
+          }
+          "Object-config" = 
+          {
+            Light = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Pole = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Floor = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Green = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            ParkingLots = 
+            {
+              "draw-to-grid-map" = false;
+            }
+            Roadmarking = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Curb = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Drivable = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Wall = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Gate = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Parking = 
+            {
+              "draw-to-grid-map" = false;
+            }
+            Fence = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Door = 
+            {
+              "draw-to-grid-map" = true;
+            }
+            Non = 
+            {
+              "draw-to-grid-map" = true;
+            }
+          }
+        }
+      )
+      Station (opencv/imgproc/structanalysis/findContours findContours)
+      Station (opencv/imgproc/structanalysis/drawContours drawContours
+        {
+          randomColors = true;
+        }
+      )
+      Station (ipp/image/thresholdCompare/threshold threshold#1
+        {
+          thresholdGT = 0.010000f;
+          valueGT = 255.000f;
+          compareMode = "GreaterThean";
+          thresholdType = "DoubleValue";
+        }
+      )
+      Station (img/converter converter#5)
+
+      Channel (veObjFileDataSourceStation.gridMapImg -> converter.img)
+      Channel (threshold.img -> findContours.img)
+      Channel (converter.img -> threshold.img)
+      Channel (findContours.contours -> drawContours.contours)
+      Channel (converter.img -> drawContours.img)
+      Channel (drawContours.img -> threshold#1.img)
+      Channel (threshold#1.img -> converter#5.img)
+      OutPort (threshold#1.img -> img11)
+      OutPort (converter#5.img -> img)
+    )
+    Station (img/converter converter#4)
+    Station (view/img img#2
+      {
+        styleSettings = 
+        {
+          Range = cDblRange(0.00000, 255.000);
+          Gamma = 1.00000;
+          Colorize = QColor(0, 0, 0, 255);
+          AutoRange = 
+          {
+            Use = false;
+            BufferSize = 1;
+            Quantil = 0.00000;
+            BorderLeft = 0;
+            BorderTop = 0;
+            BorderRight = 0;
+            BorderBottom = 0;
+          }
+        }
+        enabled = false;
+      }
+    )
+    Station (ipp/image/arithmetic/add add)
+
+    Channel (veObjFileDataSourceStation.gridMapImg -> converter.img)
+    Channel (converter#1.img -> floodFillRGB.img)
+    Channel (floodFillRGB.img -> converter#3.img)
+    Channel (converter#3.img -> threshold#1.img)
+    Channel (findContours.contours -> drawContours.contours)
+    Channel (converter.img -> drawContours.img)
+    Channel (drawContours.img -> threshold#3.img)
+    Channel (threshold#3.img -> invert.img)
+    Channel (invert.img -> converter#1.img)
+    Channel (threshold#1.img -> invert#1.img)
+    Channel (invert#1.img -> converter#4.img)
+    Channel (DetectingShapes.img -> add.img1)
+    Channel (converter#4.img -> add.img2)
+    Channel (add.img -> img#2.img)
+    Channel (converter.img -> findContours.img)
+    OutPort (add.img -> img)
+  )
+  Station (VirtualEnvironment/Extractor/CanChannelDemux CanChannelDemux
+    {
+      "No. of channels" = uint8(3U);
+    }
+  )
+  Station (format/msg2data msg2data
+    {
+      table = "Semesterprojekt.dbc";
+    }
+  )
+  Station (semesterprojekt/SigMsgToEgomotion SigMsgToEgomotion)
+  Station (VirtualEnvironment/Patcher/cMsgSendFinish cMsgSendFinish
+    {
+      "Cluster-size [ms]" = uint64(50U);
+    }
+  )
+  Station (VirtualEnvironment/Patcher/ImageSendFinish ImageSendFinish
+    {
+      "Cluster-size [ms]" = uint64(0U);
+    }
+  )
+  Station (semesterprojekt/fusion/Fusion Fusion)
+  Station (semesterprojekt/common/Pose2Viscom Pose2Viscom#1)
+  Station (VirtualEnvironment/ObjFileReader/veObjFileDataSourceStation veObjFileDataSourceStation
+    {
+      "OBJ-file" = ":veTools/ParkplatzModell.obj";
+      "Initial-pose" = 
+      {
+        x = 0.00000;
+        y = 0.00000;
+        z = 0.00000;
+        roll = 0.00000;
+        pitch = 0.00000;
+        yaw = 0.00000;
+      }
+      GridMap = 
+      {
+        width = 200.000;
+        height = 200.000;
+        resolution = 0.200000;
+        "draw-only-vertical-vertices" = true;
+        "threshold-normal-z-component" = 0.200000;
+      }
+      "Object-config" = 
+      {
+        Light = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Pole = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Floor = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Green = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        ParkingLots = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Roadmarking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Curb = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Drivable = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Wall = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Gate = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Parking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Fence = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Door = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Non = 
+        {
+          "draw-to-grid-map" = true;
+        }
+      }
+    }
+  )
+  Station (view/img LidarImage)
+  Station (VirtualEnvironment/Patcher/ImageSendFinish ImageSendFinish_Camera
+    {
+      "Cluster-size [ms]" = uint64(0U);
+    }
+  )
+  Station (semesterprojekt/camera/Camera Camera)
+  Station (view/img img)
+
+  Channel (Lidar.pose -> Pose2Viscom.pose)
+  Channel (splitChannels#1.green -> threshold#1.img)
+  Channel (threshold#1.img -> Lidar.gridmap)
+  Channel (CanChannelDemux.can_2 -> msg2data.msg)
+  Channel (msg2data.sigMsg -> SigMsgToEgomotion.sigMsg)
+  Channel (SigMsgToEgomotion.egom -> Lidar.egomotion)
+  Channel (DetectingShapes.img -> Lidar.map)
+  Channel (player.LiDARMap_img -> ImageSendFinish.data
+    {
+      force = true;
+    }
+  )
+  Channel (player.FrontCamera_img -> ImageSendFinish_Camera.data
+    {
+      force = true;
+    }
+  )
+  Channel (ImageSendFinish.data -> splitChannels#1.img)
+  Channel (player.message_msg -> cMsgSendFinish.data
+    {
+      force = true;
+    }
+  )
+  Channel (cMsgSendFinish.data -> CanChannelDemux.msg)
+  Channel (Pose2Viscom.viscom -> MapViewer.viscom)
+  Channel (veObjFileDataSourceStation.gridMapImg -> Fusion.map)
+  Channel (SigMsgToEgomotion.egom -> Fusion.egomotion)
+  Channel (Fusion.pose -> Pose2Viscom#1.pose)
+  Channel (Pose2Viscom#1.viscom -> MapViewer.viscom)
+  Channel (Fusion.map -> MapViewer.img)
+  Channel (Lidar.pose -> Fusion.lidar_pose)
+  Channel (ImageSendFinish.data -> LidarImage.img)
+  Channel (veObjFileDataSourceStation.gridMapImg -> Camera.map)
+  Channel (Camera.pose -> Fusion.cam_pose)
+  Channel (ImageSendFinish_Camera.data -> img.img)
+  Channel (img.img -> Camera.image)
+)

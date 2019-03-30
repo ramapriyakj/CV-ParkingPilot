@@ -1,0 +1,133 @@
+Graph (unnamed
+  Station (source/player player)
+  Station (view/img CameraImage
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0, 65535);
+        Gamma = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (VirtualEnvironment/ObjFileReader/veObjFileDataSourceStation ExternalMap
+    {
+      "OBJ-file" = ":veTools/ParkplatzModell.obj";
+      "Initial-pose" = 
+      {
+        x = 0.00000;
+        y = 0.00000;
+        z = 0.00000;
+        roll = 0.00000;
+        pitch = 0.00000;
+        yaw = 0.00000;
+      }
+      GridMap = 
+      {
+        width = 200.000;
+        height = 200.000;
+        resolution = 0.200000;
+        "draw-only-vertical-vertices" = true;
+        "threshold-normal-z-component" = 0.200000;
+      }
+      "Object-config" = 
+      {
+        Light = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Pole = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Floor = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Green = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        ParkingLots = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Roadmarking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Curb = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Drivable = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Wall = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Gate = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Parking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Fence = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Door = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Non = 
+        {
+          "draw-to-grid-map" = true;
+        }
+      }
+    }
+  )
+  Station (semesterprojekt/camera/Camera Camera)
+  Station (view/img MapViewer)
+  Station(VirtualEnvironment/Extractor/CanChannelDemux CanChannelDemux
+  {
+	  "No. of channels" = 3U;
+	}
+  )
+  Station (format/msg2data msg2data
+    {
+      table = "Semesterprojekt.dbc";
+    }
+  )
+  Station (semesterprojekt/SigMsgToEgomotion SigMsgToEgomotion)
+
+  Channel (player.FrontCamera_img -> CameraImage.img
+    {
+      force = true;
+    }
+  )
+  Channel (CameraImage.img -> Camera.image)
+  Channel (ExternalMap.gridMapImg -> Camera.map)
+  Channel (Camera.map -> MapViewer.img)
+  Channel (player.message_msg -> CanChannelDemux.msg
+    {
+      force = true;
+    }
+  )
+  Channel (CanChannelDemux.can_2 -> msg2data.msg)
+  Channel (msg2data.sigMsg -> SigMsgToEgomotion.sigMsg)
+  Channel (SigMsgToEgomotion.egom -> Camera.egomotion)
+)

@@ -1,0 +1,158 @@
+Graph (unnamed
+  Station (view/img MapViewer
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0, 255);
+        Gamma = 1.00000;
+        Brightness = 1.00000;
+        Hue = 1.00000;
+        Saturation = 1.00000;
+        Red = 1.00000;
+        Green = 1.00000;
+        Blue = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (VirtualEnvironment/ObjFileReader/veObjFileDataSourceStation Map
+    {
+      "OBJ-file" = ":veTools/ParkplatzModell.obj";
+      "Initial-pose" = 
+      {
+        x = 0.00000;
+        y = 0.00000;
+        z = 0.00000;
+        roll = 0.00000;
+        pitch = 0.00000;
+        yaw = 0.00000;
+      }
+      GridMap = 
+      {
+        width = 200.000;
+        height = 200.000;
+        resolution = 0.200000;
+        "draw-only-vertical-vertices" = true;
+        "threshold-normal-z-component" = 0.200000;
+      }
+      "Object-config" = 
+      {
+        Light = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Pole = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Floor = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Green = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        ParkingLots = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Roadmarking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Curb = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Drivable = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Wall = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Gate = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Parking = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Fence = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Door = 
+        {
+          "draw-to-grid-map" = true;
+        }
+        Non = 
+        {
+          "draw-to-grid-map" = true;
+        }
+      }
+    }
+  )
+  Station (semesterprojekt/common/Pose2Viscom FusionPose2Viscom)
+  Station (semesterprojekt/fusion/Fusion Fusion)
+  Station (semesterprojekt/fusion/Simulation Simulation
+    {
+      dataRate = 25.0000;
+    }
+  )
+  Station (semesterprojekt/common/Pose2Viscom CameraPose2Viscom
+    {
+      color = QColor(255, 84, 241, 255);
+    }
+  )
+  Station (semesterprojekt/common/Pose2Viscom RadarPose2Viscom
+    {
+      color = QColor(85, 170, 255, 255);
+    }
+  )
+  Station (semesterprojekt/common/Pose2Viscom LidarPose2Viscom
+    {
+      color = QColor(255, 247, 0, 255);
+    }
+  )
+  Station (semesterprojekt/fusion/Evaluation Evaluation)
+  Station (converter/text2viscom text2viscom)
+  Station (converter/text2viscom text2viscom#1
+    {
+      rect = cDblRect(0.00000, 20.0000, 0.00000, 0.00000);
+    }
+  )
+
+  Channel (FusionPose2Viscom.viscom -> MapViewer.viscom)
+  Channel (Map.gridMapImg -> Fusion.map)
+  Channel (Simulation.egomotion -> Fusion.egomotion)
+  Channel (Simulation.pose_camera -> Fusion.cam_pose)
+  Channel (Simulation.pose_lidar -> Fusion.lidar_pose)
+  Channel (Simulation.pose_radar -> Fusion.radar_pose)
+  Channel (Fusion.pose -> FusionPose2Viscom.pose)
+  Channel (Fusion.map -> MapViewer.img)
+  Channel (Simulation.pose_radar -> RadarPose2Viscom.pose)
+  Channel (Simulation.pose_lidar -> LidarPose2Viscom.pose)
+  Channel (Simulation.pose_camera -> CameraPose2Viscom.pose)
+  Channel (CameraPose2Viscom.viscom -> MapViewer.viscom)
+  Channel (LidarPose2Viscom.viscom -> MapViewer.viscom)
+  Channel (RadarPose2Viscom.viscom -> MapViewer.viscom)
+  Channel (Fusion.pose -> Evaluation.estimate_pose)
+  Channel (Simulation.pose_groundtruth -> Evaluation.groundtruth_pose)
+  Channel (Evaluation.rmse_position -> text2viscom.data)
+  Channel (text2viscom.viscom -> MapViewer.viscom)
+  Channel (Evaluation.rmse_orientation -> text2viscom#1.data)
+  Channel (text2viscom#1.viscom -> MapViewer.viscom)
+)

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <ConfigPostFix>_VS2015_Win64</ConfigPostFix>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>Cassandra Release x64 VS2015</_PropertySheetDisplayName>
+  </PropertyGroup>
+    <ItemGroup>
+    <BuildMacro Include="ConfigPostFix">
+      <Value>$(ConfigPostFix)</Value>
+    </BuildMacro>
+  </ItemGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <PreprocessorDefinitions>NDEBUG;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+</Project>

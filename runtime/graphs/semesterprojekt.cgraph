@@ -1,0 +1,126 @@
+Graph (unnamed
+  Station (source/player player
+    {
+      filename = "";
+    }
+  )
+  Station (view/img radarGridMapViewer
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0, 255);
+        Gamma = 1.00000;
+        Brightness = 1.00000;
+        Hue = 1.00000;
+        Saturation = 1.00000;
+        Red = 1.00000;
+        Green = 1.00000;
+        Blue = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (view/img lidarGridMapViewer
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0.00000, 255.000);
+        Gamma = 1.00000;
+        Brightness = 1.00000;
+        Hue = 1.00000;
+        Saturation = 1.00000;
+        Red = 1.00000;
+        Green = 1.00000;
+        Blue = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (view/img img
+    {
+      styleSettings = 
+      {
+        Range = cDblRange(0.00000, 65535.0);
+        Gamma = 1.00000;
+        AutoRange = 
+        {
+          Use = false;
+          BufferSize = 1;
+          Quantil = 0.00000;
+          BorderLeft = 0;
+          BorderTop = 0;
+          BorderRight = 0;
+          BorderBottom = 0;
+        }
+      }
+    }
+  )
+  Station (sensors/ibeo/interpreter interpreter)
+  Station (VirtualEnvironment/Converter/IBEOConverter IBEOConverter
+    {
+      patchTimeStamp = false;
+      useAbsoluteTime = false;
+      "Device-ID" = 0;
+      "Layer-count" = 4;
+    }
+  )
+  Station(VirtualEnvironment/Extractor/CanChannelDemux CanChannelDemux
+    {
+	  "No. of channels" = 3U;
+	}
+  )
+  Station (format/msg2data msg2data
+    {
+      table = "Semesterprojekt.dbc";
+    }
+  )
+  Station (semesterprojekt/SigMsgToEgomotion SigMsgToEgomotion)
+
+  Channel (player.FrontCamera_img -> img.img
+    {
+      force = true;
+    }
+  )
+  Channel (player.LiDARMap_img -> lidarGridMapViewer.img
+    {
+      force = true;
+    }
+  )
+  Channel (player.RADARMap_img -> radarGridMapViewer.img
+    {
+      force = true;
+    }
+  )
+  Channel (player.LidarRawBinary_data -> interpreter.data
+    {
+      force = true;
+    }
+  )
+  Channel (player.message_msg -> CanChannelDemux.msg
+    {
+      force = true;
+    }
+  )
+  Channel (interpreter.scanECU -> IBEOConverter.scanEcu)
+  Channel (interpreter.objectListEcuEt -> IBEOConverter.objectsEt)
+  Channel (CanChannelDemux.can_2 -> msg2data.msg)
+  Channel (msg2data.sigMsg -> SigMsgToEgomotion.sigMsg)
+)

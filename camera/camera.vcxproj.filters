@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cameraPCH.cpp" />
+    <ClCompile Include="CameraStation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cameraPCH.h" />
+    <ClInclude Include="CameraStation.h" />
+  </ItemGroup>
+</Project>

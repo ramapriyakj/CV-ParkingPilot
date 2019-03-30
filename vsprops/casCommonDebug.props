@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PropertySheetDisplayName>Cassandra Common Settings</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros">
+    <BuildSubDir>Debug</BuildSubDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="BuildSubDir">
+      <Value>$(BuildSubDir)</Value>
+  </BuildMacro>
+  </ItemGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir>..\..\bin$(ConfigPostFix)\Debug\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+    <IncludePath>..\..\include;..\..\..\..\base\cassandra\include;..\..\..\..\base\Libraries\Qt\include;..\..\..\..\base\Libraries\Qt\include\QtCore;..\..\..\..\base\Libraries\Qt\include\QtGui;..\..\..\..\base\Libraries\Qt\include\QtWidgets;..\..\..\..\base\Libraries\Qt\include\QtConcurrent;..\..\..\..\base\Libraries\IPP\include;..\..\..\..\base\Libraries\boost;$(IntDir);$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\..\base\Libraries\boost;..\..\..\..\base\Libraries\Qt\lib;..\..\..\..\base\Libraries\IPP\lib;..\..\..\..\base\Libraries\OpenCV\lib;..\..\..\..\base\cassandra\bin$(ConfigPostFix)\Debug\;..\..\..\..\base\cassandra\vendors\vld;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>..\..\..\..\base\Libraries\Qt\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>NOMINMAX;_DEBUG;_WINDOWS;CAS_LIB_PATH_REL="Libraries";CAS_BIN_PATH_REL="bin$(ConfigPostFix)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(ProjectName)PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalOptions>/w44242 /w44062 /w44254 /w44263 /w44264 /w44265 /w44266 /w44287 /w44296 /w44302 /w44836 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4481;4482;4127;4512;4510;4610;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <ResourceCompile />
+    <PreBuildEvent>
+      <Command>attrib -R $(TargetDir)\*.* /S</Command>
+    </PreBuildEvent>
+    <Link>
+      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Xmld.lib;Qt5Opengld.lib;Qt5Svgd.lib;Qt5PrintSupportd.lib;Qt5Networkd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(OutDir)$(ProjectName).lib</ImportLibrary>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+    </Link>
+    <Bscmake />
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+</Project>

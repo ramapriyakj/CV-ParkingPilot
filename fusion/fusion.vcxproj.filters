@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="fusionPCH.cpp" />
+    <ClCompile Include="FusionStation.cpp" />
+    <ClCompile Include="SimulationStation.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraNoise.cpp">
+      <Filter>Simulation\Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="LidarNoise.cpp">
+      <Filter>Simulation\Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="RadarNoise.cpp">
+      <Filter>Simulation\Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="KalmanFusion.cpp" />
+    <ClCompile Include="Noise.cpp" />
+    <ClCompile Include="AverageFusion.cpp" />
+    <ClCompile Include="EvaluationStation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fusionPCH.h" />
+    <ClInclude Include="FusionStation.h" />
+    <ClInclude Include="SimulationStation.h">
+      <Filter>Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Simulation\Paths</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearPath.h">
+      <Filter>Simulation\Paths</Filter>
+    </ClInclude>
+    <ClInclude Include="Interpolator.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearInterpolator.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareInInterpolator.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraNoise.h">
+      <Filter>Simulation\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="LidarNoise.h">
+      <Filter>Simulation\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="RadarNoise.h">
+      <Filter>Simulation\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="Noise.h">
+      <Filter>Simulation\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="UnivariateFunction.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="ScalingFunction.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadraticInInterpolator.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadraticInOutINterpolator.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="Interpolators.h">
+      <Filter>Simulation\Interpolators</Filter>
+    </ClInclude>
+    <ClInclude Include="EllipticPath.h">
+      <Filter>Simulation\Paths</Filter>
+    </ClInclude>
+    <ClInclude Include="KalmanFilter.h" />
+    <ClInclude Include="FusionStrategy.h" />
+    <ClInclude Include="KalmanFusion.h" />
+    <ClInclude Include="AverageFusion.h" />
+    <ClInclude Include="EvaluationStation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Simulation">
+      <UniqueIdentifier>{fecaf5e2-5b01-4104-aea2-ea7b5c6be2b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Interpolators">
+      <UniqueIdentifier>{b2bd408c-841b-4b5c-88b0-881e709ae74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Paths">
+      <UniqueIdentifier>{758809c1-c292-4dbd-aeeb-feb9d729a31a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Noise">
+      <UniqueIdentifier>{04ed8ba9-d48a-4c17-b227-48b4a1265959}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

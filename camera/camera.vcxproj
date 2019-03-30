@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A6F60C00-F2DD-4DCF-A938-9F5C9905BA65}</ProjectGuid>
+    <RootNamespace>camera</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <ProjectName>camera</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\vsprops\casRelease64VS2015.props" />
+    <Import Project="..\vsprops\casCommonRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\vsprops\casDebug64VS2015.props" />
+    <Import Project="..\vsprops\casCommonDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(ProjectName)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ExecutablePath>C:\Program Files\Cassandra11.8.0\Libraries\Qt\bin;;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ExecutablePath>C:\Program Files\Cassandra11.8.0\Libraries\Qt\bin;;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\Cassandra11.8.0\cassandra\include;generatedFiles\$(Configuration);C:\Program Files\Cassandra11.8.0\Libraries\Qt\include;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtCore;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtGui;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtWidgets;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtConcurrent;C:\Program Files\Cassandra11.8.0\Libraries\boost;$(SolutionDir)camera\Thirdparty\orbslam-windows;$(SolutionDir)camera\Thirdparty\orbslam-windows\include;$(SolutionDir)camera\Thirdparty\eigen;$(SolutionDir)camera\Thirdparty\pangolin\include;$(SolutionDir)camera\Thirdparty\pangolin\build\src\include;$(SolutionDir)camera\Thirdparty\pangolin\build\external\glew\include;$(SolutionDir)camera\Thirdparty\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4355;4389;4244;4709;4503;4714;4100;4482;4127;4512;4510;4610;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <AdditionalDependencies>calib.lib;cbl.lib;cdl.lib;cil.lib;cvw.lib;veBaseTypes.lib;veFramework.lib;ORB_SLAM2.lib;opencv_world320.lib;pangolin.lib;glu32.lib;opengl32.lib;glew.lib;mf.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;strmiids.lib;libpng16_static.lib;zlibstatic.lib;jpeg.lib;DBoW2.lib;g2o.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Cassandra11.8.0\cassandra\bin\Debug;C:\Program Files\Cassandra11.8.0\Libraries\Qt\lib;$(SolutionDir)camera\Thirdparty\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <AssemblyIdentity>
+      </AssemblyIdentity>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\Cassandra11.8.0\cassandra\include;generatedFiles\$(Configuration);C:\Program Files\Cassandra11.8.0\Libraries\Qt\include;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtCore;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtGui;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtWidgets;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtConcurrent;C:\Program Files\Cassandra11.8.0\Libraries\boost;C:\Program Files\Cassandra11.8.0\Libraries\OpenCV\include;$(SolutionDir)camera\Thirdparty\orbslam-windows;$(SolutionDir)camera\Thirdparty\orbslam-windows\include;$(SolutionDir)camera\Thirdparty\eigen;$(SolutionDir)camera\Thirdparty\pangolin\include;$(SolutionDir)camera\Thirdparty\pangolin\build\src\include;$(SolutionDir)camera\Thirdparty\pangolin\build\external\glew\include;$(SolutionDir)camera\Thirdparty\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4355;4389;4244;4709;4503;4714;4100;4482;4127;4512;4510;4610;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/PDBALTPATH:%_PDB% %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>calib.lib;cbl.lib;cdl.lib;cil.lib;cvw.lib;veBaseTypes.lib;veFramework.lib;ORB_SLAM2.lib;opencv_world320.lib;pangolin.lib;glu32.lib;opengl32.lib;glew.lib;mf.lib;mfplat.lib;mfreadwrite.lib;mfuuid.lib;strmiids.lib;libpng16_static.lib;zlibstatic.lib;jpeg.lib;DBoW2.lib;g2o.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Cassandra11.8.0\cassandra\bin\Release;C:\Program Files\Cassandra11.8.0\Libraries\Qt\lib;$(SolutionDir)camera\Thirdparty\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="cameraPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cameraPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cameraPCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="CameraStation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cameraPCH.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </ClInclude>
+    <ClInclude Include="CameraStation.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

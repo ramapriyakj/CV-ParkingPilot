@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DDA82C4C-7BA8-4C84-B2F2-E5F4BF4C3988}</ProjectGuid>
+    <RootNamespace>fusion</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <ProjectName>fusion</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\vsprops\casRelease64VS2015.props" />
+    <Import Project="..\vsprops\casCommonRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\vsprops\casDebug64VS2015.props" />
+    <Import Project="..\vsprops\casCommonDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)$(ProjectName)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ExecutablePath>C:\Program Files\Cassandra11.8.0\Libraries\Qt\bin;;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ExecutablePath>C:\Program Files\Cassandra11.8.0\Libraries\Qt\bin;;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\Cassandra11.8.0\cassandra\include;generatedFiles\$(Configuration);C:\Program Files\Cassandra11.8.0\Libraries\Qt\include;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtCore;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtGui;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtWidgets;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtConcurrent;C:\Program Files\Cassandra11.8.0\Libraries\boost;C:\Program Files\Cassandra11.8.0\Libraries\OpenCV\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4355;4389;4244;4709;4503;4714;4100;4482;4127;4512;4510;4610;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <AdditionalDependencies>cbl.lib;cdl.lib;cil.lib;cvw.lib;veBaseTypes.lib;veFramework.lib;opencv_core310.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Cassandra11.8.0\cassandra\bin\Debug;C:\Program Files\Cassandra11.8.0\Libraries\Qt\lib;C:\Program Files\Cassandra11.8.0\Libraries\OpenCV\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <AssemblyIdentity>
+      </AssemblyIdentity>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\Cassandra11.8.0\cassandra\include;generatedFiles\$(Configuration);C:\Program Files\Cassandra11.8.0\Libraries\Qt\include;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtCore;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtGui;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtWidgets;C:\Program Files\Cassandra11.8.0\Libraries\Qt\include\QtConcurrent;C:\Program Files\Cassandra11.8.0\Libraries\boost;C:\Program Files\Cassandra11.8.0\Libraries\OpenCV\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4355;4389;4244;4709;4503;4714;4100;4482;4127;4512;4510;4610;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/PDBALTPATH:%_PDB% %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>cbl.lib;cdl.lib;cil.lib;cvw.lib;veBaseTypes.lib;veFramework.lib;opencv_core310.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Cassandra11.8.0\cassandra\bin\Release;C:\Program Files\Cassandra11.8.0\Libraries\Qt\lib;C:\Program Files\Cassandra11.8.0\Libraries\OpenCV\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AverageFusion.cpp" />
+    <ClCompile Include="CameraNoise.cpp" />
+    <ClCompile Include="EvaluationStation.cpp" />
+    <ClCompile Include="FusionStation.cpp" />
+    <ClCompile Include="fusionPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">fusionPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">fusionPCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="KalmanFusion.cpp" />
+    <ClCompile Include="LidarNoise.cpp" />
+    <ClCompile Include="Noise.cpp" />
+    <ClCompile Include="RadarNoise.cpp" />
+    <ClCompile Include="SimulationStation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AverageFusion.h" />
+    <ClInclude Include="CameraNoise.h" />
+    <ClInclude Include="EllipticPath.h" />
+    <ClInclude Include="EvaluationStation.h" />
+    <ClInclude Include="FusionStrategy.h" />
+    <ClInclude Include="Interpolators.h" />
+    <ClInclude Include="KalmanFilter.h" />
+    <ClInclude Include="KalmanFusion.h" />
+    <ClInclude Include="QuadraticInInterpolator.h" />
+    <ClInclude Include="QuadraticInOutINterpolator.h" />
+    <ClInclude Include="ScalingFunction.h" />
+    <ClInclude Include="SquareInInterpolator.h" />
+    <ClInclude Include="FusionStation.h" />
+    <ClInclude Include="fusionPCH.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </ClInclude>
+    <ClInclude Include="Interpolator.h" />
+    <ClInclude Include="LidarNoise.h" />
+    <ClInclude Include="LinearInterpolator.h" />
+    <ClInclude Include="LinearPath.h" />
+    <ClInclude Include="Noise.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="RadarNoise.h" />
+    <ClInclude Include="SimulationStation.h" />
+    <ClInclude Include="UnivariateFunction.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
